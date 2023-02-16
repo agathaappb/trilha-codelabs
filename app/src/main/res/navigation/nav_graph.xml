@@ -9,5 +9,18 @@
         android:id="@+id/mainFragment"
         android:name="com.example.trilhacodelabs.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_toastSnakeFragment"
+            app:destination="@id/toastSnakeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toastSnakeFragment"
+        android:name="com.example.trilhacodelabs.codelabs.core.toast.ToastSnakeFragment"
+        android:label="fragment_toast_snake"
+        tools:layout="@layout/fragment_toast_snake" >
+        <action
+            android:id="@+id/action_toastSnakeFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>
