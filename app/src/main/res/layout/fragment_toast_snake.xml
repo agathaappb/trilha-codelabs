@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/coordinate_root"
     tools:context=".codelabs.core.toast.ToastSnakeFragment">
 
     <!-- TODO: Update blank fragment layout -->

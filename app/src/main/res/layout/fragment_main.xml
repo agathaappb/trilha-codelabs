@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#BBDEFB"
     tools:context=".MainFragment">
 
     <LinearLayout
@@ -18,7 +17,7 @@
             style="@style/title"
             android:text="@string/title_mainFragment"
             android:textAlignment="center"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:textColor="#1A237E"
             />
         <View
@@ -38,6 +37,7 @@
             android:textColor="#1A237E"
             />
         <Button
+            android:id="@+id/btn_codelabs_toast"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/text_btn_toast_e_snake"
