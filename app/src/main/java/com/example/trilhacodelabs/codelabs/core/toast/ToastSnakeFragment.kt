@@ -9,6 +9,11 @@ import com.example.trilhacodelabs.databinding.FragmentToastSnakeBinding
 import com.example.trilhacodelabs.util.toast
 import com.google.android.material.snackbar.Snackbar
 
+// Material de estudo:
+// https://material.io/archive/guidelines/components/snackbars-toasts.html#snackbars-toasts-usage
+//https://developer.android.com/guide/topics/ui/notifiers/toasts?hl=pt-br
+//https://m2.material.io/components/snackbars
+
 class ToastSnakeFragment : Fragment(R.layout.fragment_toast_snake) {
 
     private lateinit var binding: FragmentToastSnakeBinding
@@ -33,6 +38,4 @@ class ToastSnakeFragment : Fragment(R.layout.fragment_toast_snake) {
                 .show()
         }
     }
-
-
 }
