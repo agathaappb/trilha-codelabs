@@ -2,4 +2,6 @@
     <string name="app_name">Trilha CodeLabs</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_mainFragment">Trilha CodeLabs  \nGoogle Developer Certification</string>
+    <string name="text_btn_toast_e_snake">Toast e Snake</string>
 </resources>
