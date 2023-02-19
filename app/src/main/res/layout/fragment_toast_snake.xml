@@ -7,6 +7,13 @@
     android:id="@+id/coordinate_root"
     android:orientation="vertical"
     tools:context=".codelabs.core.toast.ToastSnakeFragment">
+    <include
+        android:id="@+id/navbar_toast_snake"
+        layout="@layout/custom_navbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
     <ImageView
         android:id="@+id/btn_toast"
@@ -15,7 +22,7 @@
         android:src="@drawable/ic_toast"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/navbar_toast_snake"
         app:layout_constraintBottom_toTopOf="@id/btn_snake"/>
 
     <ImageView

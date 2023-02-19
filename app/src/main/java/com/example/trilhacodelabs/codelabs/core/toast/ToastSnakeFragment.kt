@@ -3,9 +3,15 @@ package com.example.trilhacodelabs.codelabs.core.toast
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.trilhacodelabs.R
 import com.example.trilhacodelabs.databinding.FragmentToastSnakeBinding
+import com.example.trilhacodelabs.util.navTo
 import com.example.trilhacodelabs.util.toast
 import com.google.android.material.snackbar.Snackbar
 
@@ -23,6 +29,8 @@ class ToastSnakeFragment : Fragment(R.layout.fragment_toast_snake) {
 
         binding = FragmentToastSnakeBinding.bind(view)
 
+        setNavBar(binding)
+
         //definindo orientação da fragment
         requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
 
@@ -38,4 +46,15 @@ class ToastSnakeFragment : Fragment(R.layout.fragment_toast_snake) {
                 .show()
         }
     }
+
+    private fun setNavBar(binding: FragmentToastSnakeBinding){
+        (activity as AppCompatActivity).setSupportActionBar(binding.navbarToastSnake.toobar)
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val navController = findNavController()
+        val appBarConfiguration = AppBarConfiguration(navController.graph)
+        binding.navbarToastSnake.toobar.setupWithNavController(navController,appBarConfiguration)
+        binding.navbarToastSnake.toobar.setTitle("Toast e Snake")
+    }
+
 }
