@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.TrilhaCodeLabs" parent="Theme.MaterialComponents">
+    <style name="Theme.TrilhaCodeLabs" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">#3948AB</item>
@@ -14,7 +14,6 @@
         <!-- Customize your theme here. -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-
     </style>
     
     <style name="title">
@@ -22,6 +21,10 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Toolbar" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="android:background">#3948AB</item>
     </style>
 
 </resources>

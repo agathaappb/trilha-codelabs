@@ -55,6 +55,7 @@ class ToastSnakeFragment : Fragment(R.layout.fragment_toast_snake) {
         val appBarConfiguration = AppBarConfiguration(navController.graph)
         binding.navbarToastSnake.toobar.setupWithNavController(navController,appBarConfiguration)
         binding.navbarToastSnake.toobar.setTitle("Toast e Snake")
+
     }
 
 }
