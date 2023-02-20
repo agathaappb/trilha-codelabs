@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_mainFragment_to_toastSnakeFragment"
             app:destination="@id/toastSnakeFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
     </fragment>
     <fragment
         android:id="@+id/toastSnakeFragment"
@@ -21,6 +24,15 @@
         tools:layout="@layout/fragment_toast_snake" >
         <action
             android:id="@+id/action_toastSnakeFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.trilhacodelabs.codelabs.core.notification.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" >
+        <action
+            android:id="@+id/action_notificationFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

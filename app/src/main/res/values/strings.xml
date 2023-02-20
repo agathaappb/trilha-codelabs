@@ -13,7 +13,8 @@
     <string name="btn_confirmation">Ok</string>
     <string name="msg_snake_action_closed">Bye!! :D</string>
     <string name="title_toast_snake">Toast e Snake</string>
-    
+
     <!-- Notification -->
+    <string name="title_notification">Notification</string>
 
 </resources>

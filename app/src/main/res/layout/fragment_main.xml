@@ -46,6 +46,17 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="#3949AB"/>
+        <Button
+            android:id="@+id/btn_codelabs_notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_notification"
+            android:textSize="12sp"
+            android:padding="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#3949AB"/>
 
     </LinearLayout>
 </ScrollView>
