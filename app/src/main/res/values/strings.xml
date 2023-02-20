@@ -1,7 +1,19 @@
 <resources>
     <string name="app_name">Trilha CodeLabs</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Fragment main -->
     <string name="title_mainFragment">Trilha CodeLabs  \nGoogle Developer Certification</string>
-    <string name="text_btn_toast_e_snake">Toast e Snake</string>
+    <string name="title_category_core">Core</string>
+    <string name="btn_toast_e_snake">Toast e Snake</string>
+    <string name="btn_notification">Notification</string>
+
+    <!-- Fragment Toas e Snake -->
+    <string name="msg_toast">Sou um Toast</string>
+    <string name="msg_snake">Sou um Snake</string>
+    <string name="msg_snake_action">Sou um Snake com ação</string>
+    <string name="btn_confirmation">Ok</string>
+    <string name="msg_snake_action_closed">Bye!! :D</string>
+    <string name="title_toast_snake">Toast e Snake</string>
+    
+    <!-- Notification -->
+
 </resources>

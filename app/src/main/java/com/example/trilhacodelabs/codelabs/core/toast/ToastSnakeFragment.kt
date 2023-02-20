@@ -4,6 +4,7 @@ import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.ui.res.stringResource
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -34,15 +35,15 @@ class ToastSnakeFragment : Fragment(R.layout.fragment_toast_snake) {
         //definindo orientação da fragment
         requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
 
-        binding.btnToast.setOnClickListener { toast("Sou um Toast") }
+        binding.btnToast.setOnClickListener { toast(requireActivity().getString(R.string.msg_toast)) }
 
         binding.btnSnake.setOnClickListener {
-            Snackbar.make(view,"Sou um Snake",Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(view,R.string.msg_snake,Snackbar.LENGTH_SHORT).show()
         }
 
         binding.btnSnakeAction.setOnClickListener {
-            Snackbar.make(view,"Sou um Snake com ação", Snackbar.LENGTH_SHORT)
-                .setAction("Ok"){toast("Bye!! :D")}
+            Snackbar.make(view,R.string.msg_snake_action, Snackbar.LENGTH_SHORT)
+                .setAction(R.string.btn_confirmation){toast(requireActivity().getString(R.string.msg_snake_action_closed))}
                 .show()
         }
     }
@@ -54,7 +55,7 @@ class ToastSnakeFragment : Fragment(R.layout.fragment_toast_snake) {
         val navController = findNavController()
         val appBarConfiguration = AppBarConfiguration(navController.graph)
         binding.navbarToastSnake.toobar.setupWithNavController(navController,appBarConfiguration)
-        binding.navbarToastSnake.toobar.setTitle("Toast e Snake")
+        binding.navbarToastSnake.toobar.setTitle(R.string.title_toast_snake)
 
     }
 
