@@ -40,6 +40,7 @@ class NotificationFragment : Fragment(R.layout.fragment_notification) {
         setNavBar(binding)
         setupUiButtonsListeners()
         setupUiButtonStates(true,false,false)
+        createNotificationChannel()
 
     }
 
@@ -56,7 +57,7 @@ class NotificationFragment : Fragment(R.layout.fragment_notification) {
     private fun setupUiButtonsListeners(){
         binding.btnSendNotification.setOnClickListener {  }
         binding.btnUpdateNotification.setOnClickListener {  }
-        binding.btnCancelNotification.setOnClickListener {  }
+        binding.btnCancelNotification.setOnClickListener { cancelNotification() }
     }
 
     private fun setupUiButtonStates(
@@ -82,5 +83,10 @@ class NotificationFragment : Fragment(R.layout.fragment_notification) {
         notificationChannel.enableLights(true)
         notificationChannel.lightColor = Color.BLUE
         notificationManager.createNotificationChannel(notificationChannel)
+    }
+
+    private fun cancelNotification(){
+        notificationManager.cancel(NOTIFICATION_ID)
+        setupUiButtonStates(true,false,false)
     }
 }
