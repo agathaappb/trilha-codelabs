@@ -3,10 +3,11 @@ package com.example.trilhacodelabs.codelabs.core.notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
-import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -40,7 +41,7 @@ class NotificationFragment : Fragment(R.layout.fragment_notification) {
         setNavBar(binding)
         setupUiButtonsListeners()
         setupUiButtonStates(true,false,false)
-        createNotificationChannel()
+        createChannelNotification()
 
     }
 
@@ -55,9 +56,9 @@ class NotificationFragment : Fragment(R.layout.fragment_notification) {
     }
 
     private fun setupUiButtonsListeners(){
-        binding.btnSendNotification.setOnClickListener {  }
+        binding.btnSendNotification.setOnClickListener { sendNotification() }
         binding.btnUpdateNotification.setOnClickListener {  }
-        binding.btnCancelNotification.setOnClickListener { cancelNotification() }
+        binding.btnCancelNotification.setOnClickListener {  }
     }
 
     private fun setupUiButtonStates(
@@ -70,23 +71,32 @@ class NotificationFragment : Fragment(R.layout.fragment_notification) {
         binding.btnCancelNotification.isEnabled = enabledCancel
     }
 
-    private fun createNotificationChannel(){
-        notificationManager = requireActivity().getSystemService(Context.NOTIFICATION_SERVICE) as
-                NotificationManager
-        val notificationChannel = NotificationChannel(
-            PRIMARY_CHANNEL_ID,
-            "Codelabs - certification",
-            NotificationManager.IMPORTANCE_HIGH
-        )
-        notificationChannel.enableVibration(true)
-        notificationChannel.description = "Notification from Codelabs"
-        notificationChannel.enableLights(true)
-        notificationChannel.lightColor = Color.BLUE
-        notificationManager.createNotificationChannel(notificationChannel)
+    private fun sendNotification(){
+        val builder = NotificationCompat.Builder(requireActivity(), PRIMARY_CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_bee_flower)
+            .setContentTitle("Teste Notification")
+            .setContentText("Este é um teste de notification")
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
+        notificationManager.notify(NOTIFICATION_ID,builder.build())
+
+        
     }
 
-    private fun cancelNotification(){
-        notificationManager.cancel(NOTIFICATION_ID)
-        setupUiButtonStates(true,false,false)
+    private fun createChannelNotification(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val nameChannel = "channel_notification_codelabs"
+            val descriptionChannel = "this is my new channel for notifications in project codelabs"
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel(PRIMARY_CHANNEL_ID, nameChannel, importance).apply {
+                description = descriptionChannel
+            }
+
+            notificationManager = requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+
+        }
+
     }
+
 }
