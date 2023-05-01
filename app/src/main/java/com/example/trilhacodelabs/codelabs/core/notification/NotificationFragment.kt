@@ -3,6 +3,7 @@ package com.example.trilhacodelabs.codelabs.core.notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -57,7 +58,7 @@ class NotificationFragment : Fragment(R.layout.fragment_notification) {
 
     private fun setupUiButtonsListeners(){
         binding.btnSendNotification.setOnClickListener { sendNotification() }
-        binding.btnUpdateNotification.setOnClickListener {  }
+        binding.btnUpdateNotification.setOnClickListener { updateNotification() }
         binding.btnCancelNotification.setOnClickListener { cancelNotification() }
     }
 
@@ -101,6 +102,20 @@ class NotificationFragment : Fragment(R.layout.fragment_notification) {
     private fun cancelNotification(){
         notificationManager.cancel(NOTIFICATION_ID)
         setupUiButtonStates(true,false, false)
+    }
+
+    private fun updateNotification(){
+        val image = BitmapFactory.decodeResource(resources,R.drawable.ic_bee_flower)
+
+        val notificationUpdate = NotificationCompat.Builder(requireActivity(), PRIMARY_CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_bee_flower)
+            .setContentTitle("Teste Update Notification")
+            .setContentText("Este é um teste de atualização de notification")
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setColorized(true)
+
+        notificationManager.notify(NOTIFICATION_ID,notificationUpdate.build())
+        setupUiButtonStates(false,false,true)
     }
 
 }
