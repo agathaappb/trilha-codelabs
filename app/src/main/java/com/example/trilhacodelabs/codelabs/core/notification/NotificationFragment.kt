@@ -58,7 +58,7 @@ class NotificationFragment : Fragment(R.layout.fragment_notification) {
     private fun setupUiButtonsListeners(){
         binding.btnSendNotification.setOnClickListener { sendNotification() }
         binding.btnUpdateNotification.setOnClickListener {  }
-        binding.btnCancelNotification.setOnClickListener {  }
+        binding.btnCancelNotification.setOnClickListener { cancelNotification() }
     }
 
     private fun setupUiButtonStates(
@@ -80,7 +80,7 @@ class NotificationFragment : Fragment(R.layout.fragment_notification) {
 
         notificationManager.notify(NOTIFICATION_ID,builder.build())
 
-        
+        setupUiButtonStates(false,true,true)
     }
 
     private fun createChannelNotification(){
@@ -96,7 +96,11 @@ class NotificationFragment : Fragment(R.layout.fragment_notification) {
             notificationManager.createNotificationChannel(channel)
 
         }
+    }
 
+    private fun cancelNotification(){
+        notificationManager.cancel(NOTIFICATION_ID)
+        setupUiButtonStates(true,false, false)
     }
 
 }
