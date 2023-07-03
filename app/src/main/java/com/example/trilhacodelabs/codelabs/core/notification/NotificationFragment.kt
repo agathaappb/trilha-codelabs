@@ -2,7 +2,9 @@ package com.example.trilhacodelabs.codelabs.core.notification
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.content.BroadcastReceiver
 import android.content.Context
+import android.content.IntentFilter
 import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
@@ -33,6 +35,7 @@ class NotificationFragment : Fragment(R.layout.fragment_notification) {
 
    private lateinit var binding: FragmentNotificationBinding
    private lateinit var notificationManager: NotificationManager
+   private lateinit var broadcastReceiver: BroadcastReceiver
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,6 +47,11 @@ class NotificationFragment : Fragment(R.layout.fragment_notification) {
         setupUiButtonStates(true,false,false)
         createChannelNotification()
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+            requireActivity().unregisterReceiver(broadcastReceiver)
     }
 
     private fun setNavBar(binding: FragmentNotificationBinding){
@@ -116,6 +124,15 @@ class NotificationFragment : Fragment(R.layout.fragment_notification) {
 
         notificationManager.notify(NOTIFICATION_ID,notificationUpdate.build())
         setupUiButtonStates(false,false,true)
+    }
+
+    private fun registerBroadcastReceiver(){
+        val filters = IntentFilter().apply {
+            addAction(ACTION_UPDATE)
+            addAction(ACTION_CANCEL)
+            addAction(ACTION_DELETE_ALL)
+        }
+        requireActivity().registerReceiver(broadcastReceiver, filters)
     }
 
 }
